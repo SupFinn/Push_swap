@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 08:29:39 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/09 13:23:21 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/10 01:14:45 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	assign_indexes(t_list *stack)
 	{
 		tmp = stack;
 		min_node = NULL;
+		min_value = INT_MAX;
 		while (tmp)
 		{
 			if (tmp->index == -1 && (min_node == NULL || tmp->value < min_value))
