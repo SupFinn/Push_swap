@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_stack.c                                      :+:      :+:    :+:   */
+/*   chunk_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 09:58:38 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/12 14:28:42 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/12 15:40:30 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/12 15:48:16 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	build_stack(t_list **stack, char **numbers)
+int	get_chunk(int index, int chunk_size)
 {
-	int		i;
-	int		value;
-	t_list	*node;
+	return ((index / chunk_size) + 1);
+}
 
-	i = 0;
-	while (numbers[i])
-	{
-		value = ft_atoi(numbers[i]);
-		node = new_node(value);
-		add_back(stack, node);
-		i++;
-	}
+void	push_chunk_to_b(t_list **stack_a, t_list **stack_b,
+			int chunk_size, int current_chunk)
+{
+	
 }
