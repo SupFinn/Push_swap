@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:47:51 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/12 15:50:52 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/13 04:45:23 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	add_front(t_list **stack, t_list *new);
 void	add_back(t_list **stack, t_list *new);
 void	build_stack(t_list **stack, char **numbers);
 void	assign_indexes(t_list *stack);
-void	push_chunk_to_b(t_list **stack_a, t_list **stack_b,
+void	pb(t_list **stack_a, t_list **stack_b);
+void	push_chunk_to_b(t_list **stack_a, t_list **stack_b, \
 		int chunk_size, int current_chunk);
 
 size_t	ft_strlen(const char *str);
