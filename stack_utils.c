@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 08:29:39 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/14 22:53:26 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/15 13:56:19 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,19 @@ int	is_unindexed(t_list *stack)
 	return (0);
 }
 
+int	ft_lstsize(t_list *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
+}
+
 void	assign_indexes(t_list *stack)
 {
 	t_list	*tmp;
@@ -78,7 +91,8 @@ void	assign_indexes(t_list *stack)
 		min_value = INT_MAX;
 		while (tmp)
 		{
-			if (tmp->index == -1 && (min_node == NULL || tmp->value < min_value))
+			if (tmp->index == -1 && \
+				(min_node == NULL || tmp->value < min_value))
 			{
 				min_node = tmp;
 				min_value = tmp->value;
