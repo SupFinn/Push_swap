@@ -1,46 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_swap.c                                      :+:      :+:    :+:   */
+/*   action_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 22:47:19 by finn              #+#    #+#             */
-/*   Updated: 2025/12/14 20:53:18 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/14 21:21:54 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/14 22:30:55 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(t_list **lst)
+int	reverse(t_list **lst)
 {
-	t_list	*node1;
-	t_list	*node2;
+	t_list	*last;
+	t_list	*prev;
 
-	if (!*lst || !(*lst)->next)
+	if (!(*lst) || !(*lst)->next)
 		return (0);
-	node1 = *lst;
-	node2 = node1->next;
-	node1->next = node2->next;
-	node2->next = node1;
-	*lst = node2;
+	last = *lst;
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	last->next = *lst;
+	prev->next = NULL;
+	*lst = last;
 	return (1);
 }
 
-void	sa(t_list **a)
+void	rra(t_list **a)
 {
-	if (swap(a))
-		write(1, "sa\n", 3);
+	if (reverse(a))
+		write(1, "rra\n", 4);
 }
 
-void	sb(t_list **b)
+void	rrb(t_list **b)
 {
-	if (swap(b))
-		write(1, "sb\n", 3);
+	if (reverse(b))
+		write(1, "rrb\n", 4);
 }
 
-void	ss(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b)
 {
-	if (swap(a) && swap(b))
-		write(1, "ss\n", 3);
+	if (reverse(a) && reverse(b))
+		write(1, "rrr\n", 4);
 }

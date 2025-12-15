@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:47:51 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/14 20:44:22 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/14 21:50:42 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ typedef struct s_list
 
 int		ft_atoi(const char *str);
 int		get_chunk(int index, int chunk_size);
-int		push(t_list **dst, t_list **src);
-int		swap(t_list **first, t_list **second);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
