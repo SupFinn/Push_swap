@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:07:18 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/16 03:45:26 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/16 08:38:26 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	has_duplicates(t_list *stack)
 {
 	t_list	*curr;
 	int		num;
-	
+
 	while (stack)
 	{
 		num = stack->value;

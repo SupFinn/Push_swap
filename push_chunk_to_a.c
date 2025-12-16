@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:51:02 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/16 03:39:22 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/16 15:38:03 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	sort_stack_b(t_list **stack_a, t_list **stack_b)
 	int		max_index;
 
 	while (*stack_b)
-	{	
+	{
 		max_index = find_max_index(*stack_b);
-		bring_to_top(&stack_b, max_index);
+		bring_to_top(stack_b, max_index, 'b');
 		pa (stack_a, stack_b);
 	}
 }

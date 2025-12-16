@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:47:51 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/16 03:38:01 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/16 15:35:48 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int		is_digit(char c);
 int		is_valid_number(const char *str);
 int		has_duplicates(t_list *stack);
 int		safe_atoi(const char *str, int *out);
-int		is_digit(char c);
 int		parse_input(int argc, char **argv, t_list **stack_a);
 
 size_t	ft_strlen(const char *str);
+size_t	ft_lstsize(t_list *lst);
 t_list	*new_node(int value);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
@@ -46,10 +46,11 @@ void	add_back(t_list **stack, t_list *new);
 void	build_stack(t_list **stack, char **numbers, int free_after);
 void	assign_indexes(t_list *stack);
 void	sort_stack_b(t_list **stack_a, t_list **stack_b);
-void	bring_to_top(t_list **stack_a, int index);
+void	bring_to_top(t_list **stack_a, int index, char stack_name);
 void	sort_three(t_list **stack_a);
 void	sort_small_stack(t_list **stack_a, t_list **stack_b);
 void	sort_whole_stack(t_list **stack_a, t_list **stack_b);
+void	sort_large_stack(t_list **stack_a, t_list **stack_b);
 void	push_chunk_to_b(t_list **stack_a, t_list **stack_b, \
 		int chunk_size, int current_chunk);
 

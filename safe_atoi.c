@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 03:45:28 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/16 03:45:43 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/16 08:40:26 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	safe_atoi(const char *str, int *out)
 {
 	long	result;
-	int 	sign;
+	int		sign;
 	int		i;
 
 	result = 0;
@@ -32,7 +32,8 @@ int	safe_atoi(const char *str, int *out)
 	while (str[i] && ((str[i]) >= '0' && str[i] <= '9'))
 	{
 		result = (result * 10) + (str[i] - '0');
-		if ((sign == 1 && result > INT_MAX) || (sign == -1 && -result < INT_MIN))
+		if ((sign == 1 && result > INT_MAX) || \
+			(sign == -1 && (-result) < INT_MIN))
 			return (0);
 		i++;
 	}
