@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   safe_atoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 08:28:17 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/15 18:06:37 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/16 03:45:28 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/16 03:45:43 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int	safe_atoi(const char *str, int *out)
 {
-	unsigned int		i;
-	int					sign;
-	int					result;
+	long	result;
+	int 	sign;
+	int		i;
 
-	i = 0;
-	sign = 1;
 	result = 0;
-	while ((str[i] && str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
-		i++;
+	sign = 1;
+	i = 0;
+	if (!is_valid_number(str))
+		return (0);
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			sign *= -1;
+			sign = -1;
 		i++;
 	}
 	while (str[i] && ((str[i]) >= '0' && str[i] <= '9'))
 	{
 		result = (result * 10) + (str[i] - '0');
+		if ((sign == 1 && result > INT_MAX) || (sign == -1 && -result < INT_MIN))
+			return (0);
 		i++;
 	}
-	return (sign * result);
+	*out = ((int)result) * sign;
+	return (1);
 }

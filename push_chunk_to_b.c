@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunk_utils.c                                      :+:      :+:    :+:   */
+/*   push_chunk_to_b.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 15:40:30 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/15 09:55:11 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/16 02:29:27 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	push_chunk_to_b(t_list **stack_a, t_list **stack_b,
 {
 	while (search_chunk(stack_a, chunk_size, current_chunk))
 	{
-		if (get_chunk(stack_a->index, chunk_size) == current_chunk)
+		if (get_chunk((*stack_a)->index, chunk_size) == current_chunk)
 			pb (stack_b, stack_a);
 		else
 			ra (stack_a);

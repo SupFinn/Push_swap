@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_stack.c                                      :+:      :+:    :+:   */
+/*   bring_to_top.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 09:58:38 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/16 03:04:10 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/16 03:36:29 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/16 03:38:07 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	build_stack(t_list **stack, char **numbers, int free_after)
+void	bring_to_top(t_list **stack_a, int index)
 {
-	int		i;
-	int		num;
-
-	i = 0;
-	while (numbers[i])
+	t_list *tmp;
+	int		pos;
+	int		size;
+	
+	if (!stack_a || !*stack_a)
+    	return ;
+	tmp = *stack_a;
+	pos = 0;
+	size = ft_lstsize(tmp);
+	while (tmp && tmp->index != index)
 	{
-		if (!safe_atoi(numbers[i], &num))
-		{
-			write(1, "Error\n", 6);
-			exit (1);
-		}
-		add_back(stack, new_node(num));
-		i++;
+		pos++;
+		tmp = tmp->next;
 	}
-	if (free_after)
+	if (pos <= size / 2)
 	{
-		i = 0;
-		while (numbers[i])
-			free (numbers[i++]);
-		free (numbers);
+    	while ((*stack_a)->index != index)
+        	ra(stack_a);
+	}
+	else
+	{
+    	while ((*stack_a)->index != index)
+        	rra(stack_a);
 	}
 }

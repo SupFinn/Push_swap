@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 08:29:39 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/15 13:56:19 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/16 03:08:25 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,6 @@ int	is_unindexed(t_list *stack)
 		stack = stack->next;
 	}
 	return (0);
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int	size;
-
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
 }
 
 void	assign_indexes(t_list *stack)
