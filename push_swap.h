@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:47:51 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/16 15:35:48 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/16 23:53:22 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ typedef struct s_list
 	struct s_list		*next;
 }	t_list;
 
-int		get_chunk(int index, int chunk_size);
-int		search_chunk(t_list **stack, int chunk_size, int current_chunk);
-int		find_max_index(t_list *stack);
 int		is_digit(char c);
 int		is_valid_number(const char *str);
 int		has_duplicates(t_list *stack);
@@ -45,7 +42,6 @@ void	add_front(t_list **stack, t_list *new);
 void	add_back(t_list **stack, t_list *new);
 void	build_stack(t_list **stack, char **numbers, int free_after);
 void	assign_indexes(t_list *stack);
-void	sort_stack_b(t_list **stack_a, t_list **stack_b);
 void	bring_to_top(t_list **stack_a, int index, char stack_name);
 void	sort_three(t_list **stack_a);
 void	sort_small_stack(t_list **stack_a, t_list **stack_b);

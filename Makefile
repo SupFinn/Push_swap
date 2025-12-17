@@ -1,7 +1,7 @@
-SRCS = action_push.c action_reverse_rotate.c action_rotate.c action_swap.c \
-		bring_to_top.c build_stack.c ft_lstsize.c ft_split.c ft_strlen.c \
-		ft_substr.c input_validation.c push_chunk_to_a.c push_chunk_to_b.c \
-		push_swap.c safe_atoi.c sorting_chunks.c stack_utils.c
+SRCS = push_swap.c stack_utils.c ft_lstsize.c ft_split.c ft_substr.c \
+       ft_strlen.c safe_atoi.c input_validation.c build_stack.c \
+       action_push.c action_swap.c op_rotate.c action_reverse_rotate.c \
+       bring_to_top.c lis_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
