@@ -1,13 +1,28 @@
-SRCS = push_swap.c stack_utils.c ft_lstsize.c ft_split.c ft_substr.c \
-       ft_strlen.c safe_atoi.c input_validation.c build_stack.c \
-       action_push.c action_swap.c action_rotate.c action_reverse_rotate.c \
-       bring_to_top.c lis_utils.c final_rotate.c push_back_to_a.c \
-       sort_small_stack.c sort_stack.c target_finder.c moves_utils.c
+SRCS = src/main/push_swap.c \
+       src/stack_ops/action_push.c \
+       src/stack_ops/action_swap.c \
+       src/stack_ops/action_rotate.c \
+       src/stack_ops/action_reverse_rotate.c \
+       src/stack_ops/bring_to_top.c \
+       src/stack_utils/build_stack.c \
+       src/stack_utils/stack_utils.c \
+       src/stack_utils/input_validation.c \
+       src/stack_utils/safe_atoi.c \
+       src/sorting/sort_small_stack.c \
+       src/sorting/sort_stack.c \
+       src/sorting/final_rotate.c \
+       src/sorting/push_back_to_a.c \
+       src/sorting/moves_utils.c \
+       src/sorting/lis_utils.c \
+       src/sorting/target_finder.c \
+       src/helpers/ft_split.c \
+       src/helpers/ft_substr.c \
+       src/helpers/ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
-
 CC = cc
-CFLAGS = -Wall
+CFLAGS = -Wall -Wextra -Werror -I includes
+
 NAME = push_swap
 
 all: $(NAME)

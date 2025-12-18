@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 08:29:39 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/16 03:08:25 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/18 21:29:22 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,17 @@ t_list	*new_node(int value)
 	return (node);
 }
 
-void	add_front(t_list **stack, t_list *new)
+size_t	ft_lstsize(t_list *lst)
 {
-	if (!stack || !new)
-		return ;
-	new->next = *stack;
-	*stack = new;
+	size_t	size;
+
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }
 
 void	add_back(t_list **stack, t_list *new)
