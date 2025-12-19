@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 22:30:37 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 17:05:51 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 17:35:41 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,7 @@ int	main(int argc, char **argv)
 	init_checker_stacks(&a, &b, argc, argv);
 	execute_instructions(&a, &b);
 	check_final_state(a, b);
-	while (a)
-	{
-		tmp = a;
-		a = a->next;
-		free(tmp);
-	}
-	while (b)
-	{
-		tmp = b;
-		b = b->next;
-		free(tmp);
-	}
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }
