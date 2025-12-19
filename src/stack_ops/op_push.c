@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_swap.c                                      :+:      :+:    :+:   */
+/*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 22:47:19 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 16:47:46 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/13 04:44:18 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/19 22:44:57 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(t_list **lst)
+int	push(t_list **dst, t_list **src)
 {
-	t_list	*node1;
-	t_list	*node2;
+	t_list	*tmp;
 
-	if (!*lst || !(*lst)->next)
+	if (!src || !*src)
 		return (0);
-	node1 = *lst;
-	node2 = node1->next;
-	node1->next = node2->next;
-	node2->next = node1;
-	*lst = node2;
+	tmp = *src;
+	*src = tmp->next;
+	tmp->next = *dst;
+	*dst = tmp;
 	return (1);
 }
 
-void	sa(t_list **a, int print)
+void	pa(t_list **a, t_list **b, int print)
 {
-	if (swap(a) && print)
-		write(1, "sa\n", 3);
+	if (push(a, b) && print)
+		write(1, "pa\n", 3);
 }
 
-void	sb(t_list **b, int print)
+void	pb(t_list **b, t_list **a, int print)
 {
-	if (swap(b) && print)
-		write(1, "sb\n", 3);
-}
-
-void	ss(t_list **a, t_list **b, int print)
-{
-	if (swap(a) && swap(b) && print)
-		write(1, "ss\n", 3);
+	if (push(b, a) && print)
+		write(1, "pb\n", 3);
 }

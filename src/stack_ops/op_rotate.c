@@ -1,50 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_reverse_rotate.c                            :+:      :+:    :+:   */
+/*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 21:21:54 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 16:47:01 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/14 17:23:00 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/19 22:45:06 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	reverse(t_list **lst)
+int	rotate(t_list **lst)
 {
+	t_list	*first;
 	t_list	*last;
-	t_list	*prev;
 
-	if (!(*lst) || !(*lst)->next)
+	if (!*lst || !(*lst)->next)
 		return (0);
+	first = *lst;
 	last = *lst;
 	while (last->next)
-	{
-		prev = last;
 		last = last->next;
-	}
-	last->next = *lst;
-	prev->next = NULL;
-	*lst = last;
+	last->next = first;
+	*lst = first->next;
+	first->next = NULL;
 	return (1);
 }
 
-void	rra(t_list **a, int print)
+void	ra(t_list **a, int print)
 {
-	if (reverse(a) && print)
-		write(1, "rra\n", 4);
+	if (rotate(a) && print)
+		write(1, "ra\n", 3);
 }
 
-void	rrb(t_list **b, int print)
+void	rb(t_list **b, int print)
 {
-	if (reverse(b) && print)
-		write(1, "rrb\n", 4);
+	if (rotate(b) && print)
+		write(1, "rb\n", 3);
 }
 
-void	rrr(t_list **a, t_list **b, int print)
+void	rr(t_list **a, t_list **b, int print)
 {
-	if (reverse(a) && reverse(b) && print)
-		write(1, "rrr\n", 4);
+	if (rotate(a) && rotate(b) && print)
+		write(1, "rr\n", 3);
 }
