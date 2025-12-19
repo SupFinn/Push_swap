@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_stack.c                                      :+:      :+:    :+:   */
+/*   action_reverse_rotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 09:58:38 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/18 23:28:07 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/14 21:21:54 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/19 04:02:13 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
-void	build_stack(t_list **stack, char **numbers)
+int	reverse(t_list **lst)
 {
-	int		i;
-	char	**split;
-	int		j;
-	int		num;
+	t_list	*last;
+	t_list	*prev;
 
-	i = 0;
-	while (numbers[i])
+	if (!(*lst) || !(*lst)->next)
+		return (0);
+	last = *lst;
+	while (last->next)
 	{
-		split = ft_split(numbers[i], ' ');
-		j = 0;
-		while (split[j])
-		{
-			if (!safe_atoi(split[j], &num))
-			{
-				write(2, "Error\n", 6);
-				exit(1);
-			}
-			add_back(stack, new_node(num));
-			free(split[j]);
-			j++;
-		}
-		free(split);
-		i++;
+		prev = last;
+		last = last->next;
 	}
+	last->next = *lst;
+	prev->next = NULL;
+	*lst = last;
+	return (1);
+}
+
+void	rra(t_list **a)
+{
+	reverse(a);
+}
+
+void	rrb(t_list **b)
+{
+	reverse(b);
+}
+
+void	rrr(t_list **a, t_list **b)
+{
+	reverse(a);
+	reverse(b);
 }

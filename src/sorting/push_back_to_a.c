@@ -6,18 +6,18 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 17:47:01 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/18 20:36:11 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 14:28:46 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_best_move(t_list *stack_a, t_list *stack_b)
+int	get_best_move(t_list *stack_a, t_list *stack_b)
 {
-	t_list *tmp;
-	int min_moves;
-	int moves;
-	int best_index;
+	t_list	*tmp;
+	int		min_moves;
+	int		moves;
+	int		best_index;
 
 	tmp = stack_b;
 	min_moves = INT_MAX;
@@ -32,34 +32,28 @@ int get_best_move(t_list *stack_a, t_list *stack_b)
 		}
 		tmp = tmp->next;
 	}
-	return best_index;
+	return (best_index);
 }
 
-void do_double_rotations(t_list **a, t_list **b, int b_index, int target)
+void	do_double_rotations(t_list **a, t_list **b, int b_index, int target)
 {
-	int size_a;
-	int size_b;
+	int	size_a;
+	int	size_b;
 
 	size_a = ft_lstsize(*a);
 	size_b = ft_lstsize(*b);
-
-	while ((*b)->index != b_index &&
-		   (*a)->index != target &&
-		   get_position(*b, b_index) <= size_b / 2 &&
-		   get_position(*a, target) <= size_a / 2)
+	while ((*b)->index != b_index && (*a)->index != target && get_position(*b,
+			b_index) <= size_b / 2 && get_position(*a, target) <= size_a / 2)
 		rr(a, b);
-
-	while ((*b)->index != b_index &&
-		   (*a)->index != target &&
-		   get_position(*b, b_index) > size_b / 2 &&
-		   get_position(*a, target) > size_a / 2)
+	while ((*b)->index != b_index && (*a)->index != target && get_position(*b,
+			b_index) > size_b / 2 && get_position(*a, target) > size_a / 2)
 		rrr(a, b);
 }
 
-void push_back_to_a(t_list **stack_a, t_list **stack_b)
+void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 {
-	int b_index;
-	int target;
+	int	b_index;
+	int	target;
 
 	while (*stack_b)
 	{

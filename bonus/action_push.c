@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_stack.c                                      :+:      :+:    :+:   */
+/*   action_push.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 09:58:38 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/18 23:28:07 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/13 04:44:18 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/19 04:02:05 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
-void	build_stack(t_list **stack, char **numbers)
+int	push(t_list **dst, t_list **src)
 {
-	int		i;
-	char	**split;
-	int		j;
-	int		num;
+	t_list	*tmp;
 
-	i = 0;
-	while (numbers[i])
-	{
-		split = ft_split(numbers[i], ' ');
-		j = 0;
-		while (split[j])
-		{
-			if (!safe_atoi(split[j], &num))
-			{
-				write(2, "Error\n", 6);
-				exit(1);
-			}
-			add_back(stack, new_node(num));
-			free(split[j]);
-			j++;
-		}
-		free(split);
-		i++;
-	}
+	if (!src || !*src)
+		return (0);
+	tmp = *src;
+	*src = tmp->next;
+	tmp->next = *dst;
+	*dst = tmp;
+	return (1);
+}
+
+void	pa(t_list **a, t_list **b)
+{
+	push(a, b);
+}
+
+void	pb(t_list **b, t_list **a)
+{
+	push(b, a);
 }

@@ -1,23 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   action_swap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 07:25:42 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/15 09:55:21 by rhssayn          ###   ########.fr       */
+/*   Created: 2025/12/13 22:47:19 by rhssayn           #+#    #+#             */
+/*   Updated: 2025/12/19 04:02:54 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
-size_t	ft_strlen(const char *str)
+int	swap(t_list **lst)
 {
-	size_t	i;
+	t_list	*node1;
+	t_list	*node2;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (!*lst || !(*lst)->next)
+		return (0);
+	node1 = *lst;
+	node2 = node1->next;
+	node1->next = node2->next;
+	node2->next = node1;
+	*lst = node2;
+	return (1);
+}
+
+void	sa(t_list **a)
+{
+	swap(a);
+}
+
+void	sb(t_list **b)
+{
+	swap(b);
+}
+
+void	ss(t_list **a, t_list **b)
+{
+	swap(a);
+	swap(b);
 }

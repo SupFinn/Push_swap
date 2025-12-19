@@ -30,16 +30,15 @@ static void	perform_rotation(t_list **stack, char stack_name, int reverse)
 	}
 }
 
-void bring_to_top(t_list **stack, int index, char stack_name)
+void	bring_to_top(t_list **stack, int index, char stack_name)
 {
-	int pos;
-	int size;
+	int	pos;
+	int	size;
 
 	if (!stack || !*stack)
 		return ;
 	pos = get_position(*stack, index);
 	size = ft_lstsize(*stack);
-
 	if (pos <= size / 2)
 	{
 		while (pos-- > 0)
