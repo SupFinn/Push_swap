@@ -6,11 +6,22 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:07:18 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/16 08:38:26 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 22:39:33 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_list *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->index > stack->next->index)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
 
 int	is_digit(char c)
 {

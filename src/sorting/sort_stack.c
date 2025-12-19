@@ -6,22 +6,11 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:13:50 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 16:51:01 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 22:39:47 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_sorted(t_list *stack)
-{
-	while (stack && stack->next)
-	{
-		if (stack->index > stack->next->index)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
 
 static int	is_in_lis(int value, int *lis, int lis_length)
 {

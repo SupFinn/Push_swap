@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:47:51 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 17:46:27 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 21:15:53 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		calculate_moves(t_list *a, t_list *b, int b_index);
 int		get_value_by_index(t_list *stack, int index);
 int		get_target_index(t_list *stack_a, int value);
 int		is_unindexed(t_list *stack);
+int		is_sorted(t_list *stack);
 int		*get_lis(t_list *stack, int size, int *lis_length);
 
 void	push_back_to_a(t_list **stack_a, t_list **stack_b);

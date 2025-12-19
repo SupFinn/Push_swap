@@ -6,23 +6,11 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:51:29 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 15:12:21 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 21:23:48 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	free_stack(t_list **stack)
-{
-	t_list	*tmp;
-
-	while (*stack)
-	{
-		tmp = *stack;
-		*stack = (*stack)->next;
-		free(tmp);
-	}
-}
 
 static void	start_sort(t_list **a, t_list **b)
 {
@@ -30,6 +18,50 @@ static void	start_sort(t_list **a, t_list **b)
 		sort_small_stack(a, b);
 	else
 		sort_large_stack(a, b);
+}
+
+static int	find_smallest_index(t_list *stack)
+{
+	t_list	*tmp;
+	int		min;
+	int		min_index;
+
+	tmp = stack;
+	min = INT_MAX;
+	min_index = -1;
+	while (tmp)
+	{
+		if (tmp->value < min)
+		{
+			min = tmp->value;
+			min_index = tmp->index;
+		}
+		tmp = tmp->next;
+	}
+	return (min_index);
+}
+
+void	final_rotate(t_list **stack_a)
+{
+	int	smallest_index;
+	int	pos;
+	int	size;
+
+	if (!stack_a || !*stack_a)
+		return ;
+	smallest_index = find_smallest_index(*stack_a);
+	pos = get_position(*stack_a, smallest_index);
+	size = ft_lstsize(*stack_a);
+	if (pos <= size / 2)
+	{
+		while (pos-- > 0)
+			ra(stack_a, 1);
+	}
+	else
+	{
+		while (pos++ < size)
+			rra(stack_a, 1);
+	}
 }
 
 int	main(int argc, char **argv)
