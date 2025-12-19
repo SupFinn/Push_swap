@@ -6,11 +6,11 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 02:31:27 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 14:35:36 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 17:05:41 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus.h"
+#include "push_swap.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -49,27 +49,27 @@ void	bad_operation(char *line)
 void	apply_instruction(char *line, t_list **a, t_list **b)
 {
 	if (ft_strncmp(line, "sa\n", 3) == 0)
-		sa(a);
+		sa(a, 0);
 	else if (ft_strncmp(line, "sb\n", 3) == 0)
-		sb(b);
+		sb(b, 0);
 	else if (ft_strncmp(line, "ss\n", 3) == 0)
-		ss(a, b);
+		ss(a, b, 0);
 	else if (ft_strncmp(line, "pa\n", 3) == 0)
-		pa(a, b);
+		pa(a, b, 0);
 	else if (ft_strncmp(line, "pb\n", 3) == 0)
-		pb(b, a);
+		pb(b, a, 0);
 	else if (ft_strncmp(line, "ra\n", 3) == 0)
-		ra(a);
+		ra(a, 0);
 	else if (ft_strncmp(line, "rb\n", 3) == 0)
-		rb(b);
+		rb(b, 0);
 	else if (ft_strncmp(line, "rr\n", 3) == 0)
-		rr(a, b);
+		rr(a, b, 0);
 	else if (ft_strncmp(line, "rra\n", 4) == 0)
-		rra(a);
+		rra(a, 0);
 	else if (ft_strncmp(line, "rrb\n", 4) == 0)
-		rrb(b);
+		rrb(b, 0);
 	else if (ft_strncmp(line, "rrr\n", 4) == 0)
-		rrr(a, b);
+		rrr(a, b, 0);
 	else
 		bad_operation(line);
 }

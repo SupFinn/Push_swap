@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_rotate.c                                        :+:      :+:    :+:   */
+/*   action_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 17:23:00 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/15 09:55:35 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:47:25 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ int	rotate(t_list **lst)
 	return (1);
 }
 
-void	ra(t_list **a)
+void	ra(t_list **a, int print)
 {
-	if (rotate(a))
+	if (rotate(a) && print)
 		write(1, "ra\n", 3);
 }
 
-void	rb(t_list **b)
+void	rb(t_list **b, int print)
 {
-	if (rotate(b))
+	if (rotate(b) && print)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_list **a, t_list **b, int print)
 {
-	if (rotate(a) && rotate(b))
+	if (rotate(a) && rotate(b) && print)
 		write(1, "rr\n", 3);
 }

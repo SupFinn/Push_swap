@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:47:51 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 14:33:17 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:48:29 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ t_list				*new_node(int value);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				**ft_split(char const *s, char c);
 
-void				add_front(t_list **stack, t_list *new);
 void				add_back(t_list **stack, t_list *new);
 void				build_stack(t_list **stack, char **numbers);
 void				assign_indexes(t_list *stack);
@@ -61,23 +60,23 @@ int					get_target_index(t_list *stack_a, int value);
 void				final_rotate(t_list **stack_a);
 
 // push operations
-void				pa(t_list **a, t_list **b);
-void				pb(t_list **b, t_list **a);
+void				pa(t_list **a, t_list **b, int print);
+void				pb(t_list **b, t_list **a, int print);
 
 // swap operations
-void				sa(t_list **a);
-void				sb(t_list **b);
-void				ss(t_list **a, t_list **b);
+void				sa(t_list **a, int print);
+void				sb(t_list **b, int print);
+void				ss(t_list **a, t_list **b, int print);
 
 // rotate operations
-void				ra(t_list **a);
-void				rb(t_list **b);
-void				rr(t_list **a, t_list **b);
+void				ra(t_list **a, int print);
+void				rb(t_list **b, int print);
+void				rr(t_list **a, t_list **b, int print);
 
 // reverse rotate operations
-void				rra(t_list **a);
-void				rrb(t_list **b);
-void				rrr(t_list **a, t_list **b);
+void				rra(t_list **a, int print);
+void				rrb(t_list **b, int print);
+void				rrr(t_list **a, t_list **b, int print);
 
 // additional helpers
 int					is_unindexed(t_list *stack);

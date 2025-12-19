@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_reverse.c                                   :+:      :+:    :+:   */
+/*   action_reverse_rotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 21:21:54 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/14 22:30:55 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:47:01 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ int	reverse(t_list **lst)
 	return (1);
 }
 
-void	rra(t_list **a)
+void	rra(t_list **a, int print)
 {
-	if (reverse(a))
+	if (reverse(a) && print)
 		write(1, "rra\n", 4);
 }
 
-void	rrb(t_list **b)
+void	rrb(t_list **b, int print)
 {
-	if (reverse(b))
+	if (reverse(b) && print)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b, int print)
 {
-	if (reverse(a) && reverse(b))
+	if (reverse(a) && reverse(b) && print)
 		write(1, "rrr\n", 4);
 }

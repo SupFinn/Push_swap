@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 17:47:01 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 14:28:46 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:52:02 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	do_double_rotations(t_list **a, t_list **b, int b_index, int target)
 	size_b = ft_lstsize(*b);
 	while ((*b)->index != b_index && (*a)->index != target && get_position(*b,
 			b_index) <= size_b / 2 && get_position(*a, target) <= size_a / 2)
-		rr(a, b);
+		rr(a, b, 1);
 	while ((*b)->index != b_index && (*a)->index != target && get_position(*b,
 			b_index) > size_b / 2 && get_position(*a, target) > size_a / 2)
-		rrr(a, b);
+		rrr(a, b, 1);
 }
 
 void	push_back_to_a(t_list **stack_a, t_list **stack_b)
@@ -62,6 +62,6 @@ void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 		do_double_rotations(stack_a, stack_b, b_index, target);
 		bring_to_top(stack_b, b_index, 'b');
 		bring_to_top(stack_a, target, 'a');
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, 1);
 	}
 }

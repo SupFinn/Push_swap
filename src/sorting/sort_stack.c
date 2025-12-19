@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:13:50 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/18 22:46:52 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:51:01 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	sort_large_stack(t_list **stack_a, t_list **stack_b)
 	{
 		if (!is_in_lis((*stack_a)->index, lis, lis_length))
 		{
-			pb(stack_b, stack_a);
+			pb(stack_b, stack_a, 1);
 			size--;
 		}
 		else
-			ra(stack_a);
+			ra(stack_a, 1);
 	}
 	free(lis);
 	push_back_to_a(stack_a, stack_b);

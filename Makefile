@@ -15,7 +15,7 @@ SRCS = src/main/push_swap.c \
        src/sorting/moves_utils.c \
        src/sorting/lis_utils.c \
        src/sorting/target_finder.c \
-       src/stack_utils/ft_split.c \
+       src/stack_utils/ft_split.c
 
 BONUS_SRCS = bonus/checker.c \
              bonus/checker_utils.c \
@@ -23,23 +23,22 @@ BONUS_SRCS = bonus/checker.c \
              get_next_line/get_next_line_utils.c \
              src/sorting/moves_utils.c \
              src/sorting/target_finder.c \
-             bonus/action_push.c \
-             bonus/action_swap.c \
-             bonus/action_rotate.c \
-             bonus/action_reverse_rotate.c \
+             src/stack_ops/action_push.c \
+             src/stack_ops/action_swap.c \
+             src/stack_ops/action_rotate.c \
+             src/stack_ops/action_reverse_rotate.c \
              src/stack_ops/bring_to_top.c \
              src/stack_utils/build_stack.c \
              src/stack_utils/stack_utils.c \
              src/stack_utils/input_validation.c \
              src/stack_utils/safe_atoi.c \
-             src/stack_utils/ft_split.c 
+             src/stack_utils/ft_split.c
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I includes
-BONUS_CFLAGS = -Wall -Wextra -Werror -I bonus
 
 NAME = push_swap
 BONUS_NAME = checker
@@ -50,7 +49,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 bonus: $(BONUS_OBJS)
-	$(CC) $(BONUS_CFLAGS) $(BONUS_OBJS) -o $(BONUS_NAME)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(BONUS_NAME)
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)

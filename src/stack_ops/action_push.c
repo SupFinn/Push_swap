@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 04:44:18 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/14 20:46:46 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:46:08 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ int	push(t_list **dst, t_list **src)
 	return (1);
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, int print)
 {
-	if (push(a, b))
+	if (push(a, b) && print)
 		write(1, "pa\n", 3);
 }
 
-void	pb(t_list **b, t_list **a)
+void	pb(t_list **b, t_list **a, int print)
 {
-	if (push(b, a))
+	if (push(b, a) && print)
 		write(1, "pb\n", 3);
 }

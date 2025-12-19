@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 20:49:50 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/17 20:50:50 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:52:38 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void	final_rotate(t_list **stack_a)
 	if (pos <= size / 2)
 	{
 		while (pos-- > 0)
-			ra(stack_a);
+			ra(stack_a, 1);
 	}
 	else
 	{
 		while (pos++ < size)
-			rra(stack_a);
+			rra(stack_a, 1);
 	}
 }

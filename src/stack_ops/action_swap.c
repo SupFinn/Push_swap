@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap.c                                          :+:      :+:    :+:   */
+/*   action_swap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 22:47:19 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/15 09:19:35 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:47:46 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ int	swap(t_list **lst)
 	return (1);
 }
 
-void	sa(t_list **a)
+void	sa(t_list **a, int print)
 {
-	if (swap(a))
+	if (swap(a) && print)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_list **b)
+void	sb(t_list **b, int print)
 {
-	if (swap(b))
+	if (swap(b) && print)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_list **a, t_list **b, int print)
 {
-	if (swap(a) && swap(b))
+	if (swap(a) && swap(b) && print)
 		write(1, "ss\n", 3);
 }

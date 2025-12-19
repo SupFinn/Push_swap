@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 03:36:29 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/18 20:35:25 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:50:26 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ static void	perform_rotation(t_list **stack, char stack_name, int reverse)
 	if (reverse)
 	{
 		if (stack_name == 'a')
-			rra(stack);
+			rra(stack, 1);
 		else
-			rrb(stack);
+			rrb(stack, 1);
 	}
 	else
 	{
 		if (stack_name == 'a')
-			ra(stack);
+			ra(stack, 1);
 		else
-			rb(stack);
+			rb(stack, 1);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 23:55:10 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 14:27:30 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/19 16:36:18 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	*compute_lis_dp(int *arr, int size)
 	return (dp);
 }
 
-int	*reconstruct_lis(int *arr, int *dp, int size, int lis_length)
+int	*build_lis(int *arr, int *dp, int size, int lis_length)
 {
 	int	*lis;
 	int	i;
@@ -114,7 +114,7 @@ int	*get_lis(t_list *stack, int size, int *lis_length)
 	}
 	max = find_max_dp(dp, size);
 	*lis_length = max;
-	lis = reconstruct_lis(arr, dp, size, max);
+	lis = build_lis(arr, dp, size, max);
 	free(arr);
 	free(dp);
 	return (lis);
