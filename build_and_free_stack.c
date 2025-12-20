@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:58:38 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/20 06:40:32 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/20 08:42:34 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ int	build_stack(t_list **stack, char **numbers)
 		free_array(split);
 		i++;
 	}
-	return (1);
+	return (*stack != NULL);
 }
