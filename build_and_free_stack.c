@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:58:38 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 21:23:43 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/20 06:40:32 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,44 @@ void	free_stack(t_list **stack)
 	}
 }
 
-void	build_stack(t_list **stack, char **numbers)
+void	free_array(char **arr)
 {
-	int		i;
-	char	**split;
-	int		j;
-	int		num;
+	int	i = 0;
 
-	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+int	build_stack(t_list **stack, char **numbers)
+{
+	int i = 0, j, num;
+	char **split;
+	t_list *node;
+
 	while (numbers[i])
 	{
 		split = ft_split(numbers[i], ' ');
+		if (!split)
+			return (0);
 		j = 0;
 		while (split[j])
 		{
-			if (!safe_atoi(split[j], &num))
+			if (!safe_atoi(split[j], &num) || !(node = new_node(num)))
 			{
-				write(2, "Error\n", 6);
-				exit(1);
+				free_array(split);
+				free_stack(stack);
+				return (0);
 			}
-			add_back(stack, new_node(num));
-			free(split[j]);
+			add_back(stack, node);
 			j++;
 		}
-		free(split);
+		free_array(split);
 		i++;
 	}
+	return (1);
 }

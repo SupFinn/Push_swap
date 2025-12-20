@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:51:29 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 21:23:48 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/20 06:43:52 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,17 +73,17 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
-	build_stack(&stack_a, &argv[1]);
-	assign_indexes(stack_a);
-	if (has_duplicates(stack_a))
+	if (!build_stack(&stack_a, &argv[1]) || has_duplicates(stack_a))
 	{
 		write(2, "Error\n", 6);
-		exit(1);
+		free_stack(&stack_a);
+		return (1);
 	}
+	assign_indexes(stack_a);
 	if (is_sorted(stack_a))
 	{
 		free_stack(&stack_a);
-		exit (0);
+		return (0);
 	}
 	start_sort(&stack_a, &stack_b);
 	final_rotate(&stack_a);

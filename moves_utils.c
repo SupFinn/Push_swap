@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 20:29:47 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/18 20:41:43 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/20 04:42:47 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,6 @@ int	get_position(t_list *stack, int index)
 		tmp = tmp->next;
 	}
 	return (-1);
-}
-
-int	get_value_by_index(t_list *stack, int index)
-{
-	t_list	*tmp;
-
-	tmp = stack;
-	while (tmp)
-	{
-		if (tmp->index == index)
-			return (tmp->value);
-		tmp = tmp->next;
-	}
-	return (0);
 }
 
 int	max(int a, int b)

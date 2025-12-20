@@ -1,33 +1,11 @@
-SRCS = src/main/push_swap.c \
-       src/stack_ops/op_push.c \
-       src/stack_ops/op_swap.c \
-       src/stack_ops/op_rotate.c \
-       src/stack_ops/op_reverse_rotate.c \
-       src/stack_ops/bring_to_top.c \
-       src/stack_utils/build_and_free_stack.c \
-       src/stack_utils/stack_utils.c \
-       src/stack_utils/input_validation.c \
-       src/stack_utils/helpers.c \
-       src/sorting/sort_small_stack.c \
-       src/sorting/sort_stack.c \
-       src/sorting/push_back_to_a.c \
-       src/sorting/moves_utils.c \
-       src/sorting/lis_utils.c \
-       src/sorting/target_finder.c \
-       src/stack_utils/ft_split.c
+SRCS = push_swap.c op_push.c op_swap.c op_rotate.c op_reverse_rotate.c \
+		bring_to_top.c build_and_free_stack.c stack_utils.c input_validation.c \
+		helpers.c sort_small_stack.c sort_large_stack.c push_back_to_a.c moves_utils.c \
+		lis_utils.c target_finder.c ft_split.c \
 
-BONUS_SRCS = bonus/checker.c \
-             get_next_line/get_next_line.c \
-             get_next_line/get_next_line_utils.c \
-             src/stack_ops/op_push.c \
-             src/stack_ops/op_swap.c \
-             src/stack_ops/op_rotate.c \
-             src/stack_ops/op_reverse_rotate.c \
-			 src/stack_utils/build_and_free_stack.c \
-             src/stack_utils/stack_utils.c \
-             src/stack_utils/input_validation.c \
-             src/stack_utils/helpers.c \
-             src/stack_utils/ft_split.c
+BONUS_SRCS = bonus/checker.c op_swap.c op_rotate.c op_push.c op_reverse_rotate.c \
+			 build_and_free_stack.c stack_utils.c input_validation.c helpers.c \
+             ft_split.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
@@ -43,8 +21,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-bonus: $(BONUS_OBJS)
+$(BONUS_NAME): $(BONUS_OBJS)
 	$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(BONUS_NAME)
+
+bonus: $(BONUS_NAME)
 
 clean:
 	rm -rf $(OBJS) $(BONUS_OBJS)

@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 23:55:10 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 16:36:18 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/20 03:41:20 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	*build_lis(int *arr, int *dp, int size, int lis_length)
 	return (lis);
 }
 
-static int	find_max_dp(int *dp, int size)
+int	find_max_dp(int *dp, int size)
 {
 	int	i;
 	int	max;

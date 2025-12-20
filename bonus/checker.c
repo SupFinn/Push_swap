@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 22:30:37 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/19 21:05:41 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/20 06:49:54 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,21 @@ void	build_checker_stacks(t_list **a, t_list **b, int argc, char **argv)
 		return ;
 	*a = NULL;
 	*b = NULL;
-	build_stack(a, &argv[1]);
-	assign_indexes(*a);
-	if (has_duplicates(*a))
+	if (!build_stack(a, &argv[1]) || has_duplicates(*a))
 	{
 		write(2, "Error\n", 6);
+		free_stack(a);
 		exit(1);
 	}
+	assign_indexes(*a);
 }
 
 void	bad_operation(char *line)
 {
 	write(2, "Error\n", 6);
 	free(line);
+	free_stack(a);
+	free_stack(b);
 	exit(1);
 }
 
@@ -62,7 +64,7 @@ void	apply_instruction(char *line, t_list **a, t_list **b)
 		bad_operation(line);
 }
 
-int	execute_instructions(t_list **a, t_list **b)
+void	execute_instructions(t_list **a, t_list **b)
 {
 	char	*line;
 
@@ -73,7 +75,6 @@ int	execute_instructions(t_list **a, t_list **b)
 		free(line);
 		line = get_next_line(0);
 	}
-	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -89,7 +90,7 @@ int	main(int argc, char **argv)
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
-	free_stack(&a); 
+	free_stack(&a);
 	free_stack(&b);
 	return (0);
 }
