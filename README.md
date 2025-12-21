@@ -74,3 +74,10 @@ For large inputs, this project uses a **LIS-based approach** combined with a **g
 ### 📦 Compilation
 ```bash
 make
+
+## 👤 Author
+
+**Redouane Hssayn (Finn)/(rhssayn)**
+Student at **1337 - 42 Network**
+
+If this project helps you, feel free to ⭐ the repository on GitHub!
