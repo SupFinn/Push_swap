@@ -74,6 +74,7 @@ For large inputs, this project uses a **LIS-based approach** combined with a **g
 ### 📦 Compilation
 ```bash
 make
+```
 
 ## 👤 Author
 
