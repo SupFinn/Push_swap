@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:47:51 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/20 06:44:30 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/21 22:23:50 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_list
 {
 	int				value;
 	int				index;
-	int				in_lis;
 	struct s_list	*next;
 }	t_list;
 
@@ -85,7 +84,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
 char	*ft_strncpy(char *dest, char *src, size_t n);
 
-void	bad_operation(char *line);
+void	bad_operation(char *line, t_list **a, t_list **b);
 void	apply_instruction(char *line, t_list **a, t_list **b);
 void	init_checker_stacks(t_list **a, t_list **b, int argc,
 			char **argv);	

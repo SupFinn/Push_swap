@@ -1,63 +1,76 @@
 *This project has been created as part of the 42 curriculum by rhssayn.*
 
-# Push_swap
+# 🔁 push_swap
 
-## Description
-Push_swap is a project designed to sort data on a stack using a limited set of operations.  
-The goal is to sort a stack of integers in **ascending order** with the **minimum number of moves**, using only two stacks (`a` and `b`) and the following allowed operations:
+## 📌 Description
 
-- `sa`, `sb`, `ss` – swap the first two elements of a stack
-- `pa`, `pb` – push the top element from one stack to the other
-- `ra`, `rb`, `rr` – rotate stack (top element becomes last)
-- `rra`, `rrb`, `rrr` – reverse rotate stack (last element becomes first)
+**push_swap** is an algorithmic project from the 42 curriculum that consists of sorting a stack of integers using a **limited set of operations** and **two stacks** (`a` and `b`), while producing the **minimum number of moves possible**.
 
-The project emphasizes **algorithm optimization**, understanding of **linked lists**, and **efficient move calculation**.
+The challenge is not only to sort the data correctly, but to do so **efficiently**, which requires choosing and implementing an optimized algorithm.
 
-## Instructions
+---
 
-### Compilation
-To compile the main program:
+## 🎯 Project Objectives
 
+- 🧠 Understand algorithmic problem-solving
+- 📚 Manipulate linked lists and stacks
+- 🔄 Work with constrained operations
+- ⚡ Optimize the number of instructions
+- 🧪 Handle edge cases and input validation
+- 🚀 Develop a scalable sorting strategy
+
+---
+
+## ⚙️ Allowed Operations
+
+| Operation | Description |
+|---------|-------------|
+| `sa` / `sb` | Swap the first two elements |
+| `ss` | `sa` and `sb` simultaneously |
+| `pa` / `pb` | Push top element between stacks |
+| `ra` / `rb` | Rotate stack up |
+| `rr` | `ra` and `rb` simultaneously |
+| `rra` / `rrb` | Reverse rotate |
+| `rrr` | `rra` and `rrb` simultaneously |
+
+---
+
+## 🧠 Algorithm Choice
+
+### ✅ Longest Increasing Subsequence (LIS) + Greedy Strategy
+
+For large inputs, this project uses a **LIS-based approach** combined with a **greedy reinsertion strategy**.
+
+### 🔍 Why LIS?
+
+- The **Longest Increasing Subsequence** represents elements already in correct relative order
+- These elements are kept in **stack A**
+- All other elements are pushed to **stack B**
+- This reduces unnecessary operations
+
+### 🧩 Strategy Overview
+
+1. Convert stack A into an array
+2. Compute the **LIS** using **Dynamic Programming**
+3. Keep LIS elements in stack A
+4. Push remaining elements to stack B
+5. Reinsert elements from B to A with minimal cost
+6. Final rotation to fully sort stack A
+
+---
+
+## 🧮 Algorithm Concepts Used
+
+- 📈 Dynamic Programming (LIS computation)
+- 🎯 Greedy algorithm (best move selection)
+- 🔢 Indexing / normalization
+- 🔁 Stack rotations optimization
+- 🧠 Cost calculation for moves
+
+---
+
+## ▶️ Usage
+
+### 📦 Compilation
 ```bash
-make        # compile push_swap
-make clean  # remove object files
-make fclean # remove object files and executables
-make re     # recompile everything
-```
-For the bonus checker program:
-
-```bash
-make bonus  # compile checker
-```
-
-### Execution
-
-To run the push_swap program:
-
-```bash
-./push_swap [numbers]
-```
-
-Example:
-
-```bash
-./push_swap 3 2 1 6 5
-```
-
-To run the bonus checker program:
-
-```bash
-./checker [numbers]
-```
-
-## Resources
-
-- [42 Push_swap PDF](https://cdn.intra.42.fr/pdf/pdf/189068/en.subject.pdf)
-- [C Standard Library Documentation](https://www.cplusplus.com/reference/cstdlib/)
-- [Linked List Data Structure](https://www.geeksforgeeks.org/linked-list-set-1-introduction/)
-- Tutorials and articles on sorting algorithms (e.g., LIS, insertion sort)
-
-### AI Usage
-
-AI was used to:
-- Explain complex algorithmic parts (e.g., minimal moves, LIS calculation)
+make

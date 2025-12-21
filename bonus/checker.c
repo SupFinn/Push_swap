@@ -6,7 +6,7 @@
 /*   By: rhssayn <rhssayn@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 22:30:37 by rhssayn           #+#    #+#             */
-/*   Updated: 2025/12/20 06:49:54 by rhssayn          ###   ########.fr       */
+/*   Updated: 2025/12/20 18:06:38 by rhssayn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	build_checker_stacks(t_list **a, t_list **b, int argc, char **argv)
 	assign_indexes(*a);
 }
 
-void	bad_operation(char *line)
+void	bad_operation(char *line, t_list **a, t_list **b)
 {
 	write(2, "Error\n", 6);
 	free(line);
@@ -61,7 +61,7 @@ void	apply_instruction(char *line, t_list **a, t_list **b)
 	else if (!ft_strncmp(line, "rrr\n", 4))
 		rrr(a, b, 0);
 	else
-		bad_operation(line);
+		bad_operation(line, a, b);
 }
 
 void	execute_instructions(t_list **a, t_list **b)
